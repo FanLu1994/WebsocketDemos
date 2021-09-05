@@ -17,9 +17,15 @@
       </div>
       <div class="w-3/4 grid grid-rows-4  bg-green-400">
         <div class="bg-white row-span-3 overflow-auto" id="messageBox">
-          <div v-for="item in historyMessage" >
-            <div v-if="item.username!==undefined" class="px-5 text-left">
-              <span class="text-purple-500">{{item.username}}</span>:{{item.msg}}
+          <div v-for="item in historyMessage" class="w-full">
+            <div v-if="item.username!==undefined" class="px-5 text-left ">
+              <div v-if="username===item.username">
+                <p ><span class="text-red-500 ">{{item.username}}</span>: <span class="break-all">{{item.msg}}</span></p>
+              </div>
+              <div v-else>
+                <p ><span class="text-purple-500 ">{{item.username}}</span>: <span class="break-all">{{item.msg}}</span></p>
+              </div>
+
             </div>
             <div v-else class="text-pink-400">
               系统提示:{{item.msg}}
